@@ -63,9 +63,22 @@ for (int i = 0; i < rann; i++) {
         // 6. Pop off as many elements from the stack to fill the Queue with 5
         //    elements. If there aren't enough elements in the Stack to fill the 
         //    queue, fill the queue as much as possible. 
-
+while (doubleq.size() < 5) {
+	if (doubles.size() <= 0) {
+		break;
+	} else {
+		doubleq.add(doubles.pop());
+	}
+}
         // 7. Loop until there are no more elements in either the Stack or Queue
         //    and all the elements are printed
-        
+        while(!doubles.isEmpty()) {
+        	doubleq.add(doubles.pop());
+        }
+        while(!doubleq.isEmpty()) {
+        	System.out.println(doubleq.remove());
+        }
+        System.out.println(doubles.size() +" elements left in the stack");
+        System.out.println(doubleq.size()+  " elements left in the queue");
     }
 }
