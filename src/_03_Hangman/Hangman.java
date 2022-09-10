@@ -10,16 +10,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Hangman implements KeyListener {
-JFrame frame;
-JPanel panel;
-JLabel label;
-JLabel label2;
-String current;
-String display;
-Utilities getter;
-int lives = 10;
-ArrayDeque<String> list = new ArrayDeque<String>();
-	
+	JFrame frame;
+	JPanel panel;
+	JLabel label;
+	JLabel label2;
+	String current;
+	String display;
+	Utilities getter;
+	int lives = 10;
+	ArrayDeque<String> list = new ArrayDeque<String>();
+
 	public void setup() {
 		frame = new JFrame();
 		panel = new JPanel();
@@ -31,12 +31,12 @@ ArrayDeque<String> list = new ArrayDeque<String>();
 		frame.addKeyListener(this);
 		current = "";
 		display = "";
-		label2.setText("Lives left: "+ lives);
-		getter=new Utilities();
-		
-		String plays = JOptionPane.showInputDialog(null,"How many words do you want to guess? (1 - 100)");
+		label2.setText("Lives left: " + lives);
+		getter = new Utilities();
+
+		String plays = JOptionPane.showInputDialog(null, "How many words do you want to guess? (1 - 100)");
 		int words = Integer.parseInt(plays);
-		
+
 		for (int i = 0; i < words; i++) {
 			String undupe = getter.readRandomLineFromFile("dictionary.txt");
 			if (!list.contains(undupe)) {
@@ -45,22 +45,23 @@ ArrayDeque<String> list = new ArrayDeque<String>();
 				i--;
 			}
 		}
-		
+
 		current = list.pop();
 		for (int i = 0; i < current.length(); i++) {
 			display += "_";
 		}
 		label.setText(display);
 		frame.pack();
-	
+
 	}
+
 	public static void main(String[] args) {
-		
-	Hangman hangman = new Hangman();
-	hangman.setup();
-		
-		
+
+		Hangman hangman = new Hangman();
+		hangman.setup();
+
 	}
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -107,16 +108,18 @@ ArrayDeque<String> list = new ArrayDeque<String>();
 			}
 			label2.setText("Lives Left: " + lives);
 		}
-		
+
 	}
+
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
