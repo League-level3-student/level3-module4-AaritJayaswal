@@ -13,7 +13,7 @@ Stack<Double> numbers = new Stack<Double>();
         // 2. Use a loop to push 100 random doubles between 0 and 100 to the Stack.
 Random ran = new Random();
 for (int i = 0; i < 100; i++) {
-	double rand = ran.nextDouble();
+	double rand = ran.nextInt();
 	numbers.push(rand);
 }
         // 3. Ask the user to enter in two numbers between 0 and 100, inclusive. 
@@ -24,7 +24,9 @@ int num2 = Integer.parseInt(input2);
         // 4. Pop all the elements off of the Stack. Every time a double is popped that is
         //    between the two numbers entered by the user, print it to the screen.
 
-
+while(! numbers.isEmpty()) {
+	System.out.println(numbers.pop());
+}
 
         // EXAMPLE:
         // NUM 1: 65
